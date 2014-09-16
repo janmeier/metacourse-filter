@@ -85,8 +85,9 @@ class plugin_metacourses extends plugin_base{
             $courses = $remotedb->get_records_select('meta_course',"id $usql",$params);         // Metacourse
 
             foreach($courses as $c){
-                //$courseoptions[$c->id] = format_string($c->fullname);                         // Original var: 'fullname'
-                $courseoptions[$c->id] = format_string($c->name);                               // Changed to 'name'
+				if ($c->name) {
+					$courseoptions[$c->id] = format_string($c->name);                               // Changed to 'name'
+				}
             }
         }
 
