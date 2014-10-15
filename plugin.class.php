@@ -82,7 +82,7 @@ class plugin_metacourses extends plugin_base{
         if(!empty($courselist)){
             list($usql, $params) = $remotedb->get_in_or_equal($courselist);
             //$courses = $remotedb->get_records_select('course',"id $usql",$params);            // Original
-            $courses = $remotedb->get_records_select('meta_course',"id $usql",$params);         // Metacourse
+            $courses = $remotedb->get_records_select('meta_course',"id $usql",$params, 'name ASC');         // Metacourse
 
             foreach($courses as $c){
 				if ($c->name) {
